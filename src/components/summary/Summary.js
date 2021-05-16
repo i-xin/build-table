@@ -2,9 +2,9 @@ import React from "react";
 import { Grid } from "@material-ui/core";
 import PropTypes from "prop-types";
 
-import SummaryItem from "./SummaryItem";
+import { SummaryItem } from "./SummaryItem";
 
-const Summary = ({ items }) => {
+export const Summary = ({ items }) => {
   const totalGrid = 12;
   const slice = Math.floor(totalGrid / items.length);
 
@@ -27,8 +27,6 @@ const Summary = ({ items }) => {
     </Grid>
   );
 };
-
-export default Summary;
 
 Summary.propTypes = {
   items: PropTypes.arrayOf(

@@ -1,6 +1,7 @@
 import React from "react";
 import { TableHead, TableRow, TableCell } from "@material-ui/core";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const LightTableHead = styled(TableHead)`
   th:first-child {
@@ -15,7 +16,7 @@ const LightTableHead = styled(TableHead)`
   }
 `;
 
-const DataTableHead = ({ headers }) => {
+export const DataTableHead = ({ headers }) => {
   return (
     <LightTableHead>
       <TableRow>
@@ -27,4 +28,12 @@ const DataTableHead = ({ headers }) => {
   );
 };
 
-export default DataTableHead;
+DataTableHead.propTypes = {
+  headers: PropTypes.arrayOf(
+    PropTypes.shape({
+      key: PropTypes.string.isRequired,
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+        .isRequired,
+    })
+  ).isRequired,
+};

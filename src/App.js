@@ -3,8 +3,7 @@ import { Container, Box } from "@material-ui/core";
 import styled from "styled-components";
 import axios from "axios";
 
-import Summary from "./components/summary/Summary";
-import DataTable from "./components/DataTable/DataTable";
+import { Summary, DataTable } from "./components";
 import { parseCSV } from "./utils/api-utils";
 import {
   creativeHeaders,

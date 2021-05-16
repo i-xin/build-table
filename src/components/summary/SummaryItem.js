@@ -16,7 +16,7 @@ const SummaryTypography = styled(Typography)`
   }
 `;
 
-const SummaryItem = ({ item }) => {
+export const SummaryItem = ({ item }) => {
   return (
     <>
       <TitleTypography variant="subtitle1" className="titleName">
@@ -26,8 +26,6 @@ const SummaryItem = ({ item }) => {
     </>
   );
 };
-
-export default SummaryItem;
 
 SummaryItem.propTypes = {
   item: PropTypes.shape({

@@ -1,6 +1,7 @@
 import React from "react";
 import { TableBody, TableRow, TableCell } from "@material-ui/core";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
 const StyledTableBody = styled(TableBody)`
   td:first-child {
@@ -13,7 +14,7 @@ const StyledTableBody = styled(TableBody)`
     text-align: right;
   }
 `;
-const DataTableBody = ({ columns, rows }) => {
+export const DataTableBody = ({ columns, rows }) => {
   return (
     <StyledTableBody>
       {rows.map((row) => {
@@ -29,4 +30,7 @@ const DataTableBody = ({ columns, rows }) => {
   );
 };
 
-export default DataTableBody;
+DataTableBody.propTypes = {
+  columns: PropTypes.arrayOf(PropTypes.string).isRequired,
+  rows: PropTypes.arrayOf(PropTypes.object).isRequired,
+};

@@ -7,9 +7,10 @@ import {
   Table,
 } from "@material-ui/core";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 
-import DataTableHead from "./DataTableHead";
-import DataTableBody from "./DataTableBody";
+import { DataTableHead } from "./DataTableHead";
+import { DataTableBody } from "./DataTableBody";
 
 const TablePaper = styled(Paper)`
   width: 80%;
@@ -20,7 +21,7 @@ const TablePaper = styled(Paper)`
   }
 `;
 
-const DataTable = ({ title, headers, rows }) => {
+export const DataTable = ({ title, headers, rows }) => {
   const columns = headers.map((header) => header.key);
 
   return (
@@ -38,4 +39,14 @@ const DataTable = ({ title, headers, rows }) => {
   );
 };
 
-export default DataTable;
+DataTable.propTypes = {
+  title: PropTypes.string.isRequired,
+  headers: PropTypes.arrayOf(
+    PropTypes.shape({
+      key: PropTypes.string.isRequired,
+      value: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+        .isRequired,
+    })
+  ).isRequired,
+  rows: PropTypes.arrayOf(PropTypes.object).isRequired,
+};
